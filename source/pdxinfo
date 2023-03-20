@@ -1,0 +1,7 @@
+name=Chomper
+author=Phil Merricks
+description=Yum Yum Yum Yum
+bundleID=com.philmerricks.chomper
+version=1.0
+buildNumber=100
+imagePath=system-assets
