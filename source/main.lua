@@ -33,7 +33,7 @@ gameDidLaunch()
 local tilemap
 function setup()
     LDtk.load("images/chomper-1.ldtk")
-    tilemap = LDtk.create_tilemap("Level_0")
+    tilemap = LDtk.create_tilemap("Level_1")
 end
 
 setup()
