@@ -33,7 +33,15 @@ gameDidLaunch()
 local tilemap
 function setup()
     LDtk.load("images/chomper-1.ldtk")
-    tilemap = LDtk.create_tilemap("Level_1")
+    tilemap = LDtk.create_tilemap("Level_0")
+    local layerSprite = gfx.sprite.new()
+    layerSprite:setTilemap( tilemap )
+    layerSprite:Add()
+    local collisionTiles = LDtk.get_empty_tileIDs("Level_0", "Wall", "Tiles")
+    if collisionTiles then
+        gfx.sprite.addWallSprites(tilemap, collisionTiles)
+    end
+    
 end
 
 setup()
@@ -41,7 +49,7 @@ setup()
 --- This update method is called once per frame.
 function playdate.update()
     -- Example code. Draw a full-screen rectangle and the frames per second
-    -- gfx.fillRect(0, 0, 400, 240)
+    gfx.fillRect(0, 0, 400, 240)
     playdate.drawFPS(0,0)
     tilemap:draw(0,0)
     -- Update and draw all sprites. Calling this method in playdate.update

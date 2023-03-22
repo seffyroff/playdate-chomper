@@ -4,7 +4,7 @@
 .PHONY: copy
 
 SDK = $(shell egrep '^\s*SDKRoot' ~/.Playdate/config | head -n 1 | cut -c9-)
-SDKBIN=$(SDK)\bin
+SDKBIN=$(SDK)/bin
 GAME=$(notdir $(CURDIR))
 SIM=PlaydateSimulator
 
@@ -16,8 +16,8 @@ run: open
 clean:
 	rm -rf '$(GAME).pdx'
 
-compile: Source\main.lua
-	"$(SDKBIN)\pdc.exe" 'Source' '$(GAME).pdx'
+compile: source/main.lua
+	"$(SDKBIN)/pdc" 'source' '$(GAME).pdx'
 	
 open:
-	'$(SDKBIN)\$(SIM).exe' '$(GAME).pdx'
+	'$(SDKBIN)/$(SIM)' '$(GAME).pdx'
