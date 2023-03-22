@@ -35,13 +35,12 @@ function setup()
     LDtk.load("images/chomper-1.ldtk")
     tilemap = LDtk.create_tilemap("Level_0")
     local layerSprite = gfx.sprite.new()
-    layerSprite:setTilemap( tilemap )
+    layerSprite:setTilemap(tilemap)
     layerSprite:Add()
     local collisionTiles = LDtk.get_empty_tileIDs("Level_0", "Wall", "Tiles")
     if collisionTiles then
-        gfx.sprite.addWallSprites(tilemap, collisionTiles)
+        playdate.graphics.sprite.addWallSprites(tilemap, collisionTiles)
     end
-    
 end
 
 setup()
