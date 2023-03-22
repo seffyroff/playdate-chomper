@@ -13,7 +13,6 @@ import "button"
 import "crank"
 import "lifecycle"
 import "simulator"
-import "LDtk"
 
 -- Use common shorthands for playdate code
 local gfx <const> = playdate.graphics
