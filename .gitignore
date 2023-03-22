@@ -1,2 +1,5 @@
 .DS_Store
 *.pdx/
+/toyboxes
+/source/images/Arcade - Pac-Man - General Sprites.png
+/source/images/Arcade - Pac-Man - Maze Parts.png
