@@ -4,12 +4,16 @@ import "CoreLibs/graphics"
 import "CoreLibs/sprites"
 import "CoreLibs/timer"
 
+-- Toybox imports
+import "../toyboxes/toyboxes.lua"
+
+
 -- Project imports
 import "button"
 import "crank"
 import "lifecycle"
 import "simulator"
-import "game"
+import "LDtk"
 
 -- Use common shorthands for playdate code
 local gfx <const> = playdate.graphics
@@ -27,15 +31,20 @@ local function gameDidLaunch()
 end
 gameDidLaunch()
 
+local tilemap
+function setup()
+    LDtk.load("images/chomper-1.ldtk")
+    tilemap = LDtk.create_tilemap("Level_0")
+end
+
+setup()
+
 --- This update method is called once per frame.
 function playdate.update()
     -- Example code. Draw a full-screen rectangle and the frames per second
-    gfx.fillRect(0, 0, 400, 240)
+    -- gfx.fillRect(0, 0, 400, 240)
     playdate.drawFPS(0,0)
-    DrawMaze()
-    DrawPlayer()
-    DrawEnd()
-
+    tilemap:draw(0,0)
     -- Update and draw all sprites. Calling this method in playdate.update
     -- is generally what you want, if you're using sprites.
     -- See https://sdk.play.date/1.9.3/#f-graphics.sprite.update for more info
